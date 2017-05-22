@@ -1,5 +1,5 @@
 To run:
-	python pendulum.py
+	python pendulum.py filename
 To stop:
 	press 'q'
 
