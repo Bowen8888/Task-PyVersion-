@@ -1,7 +1,10 @@
 import cv2
 import numpy as np
+import sys
 
-cap = cv2.VideoCapture('GOPR0173(1).avi')
+filename = sys.argv[1]
+
+cap = cv2.VideoCapture(filename)
 timeCount = 0
 trial = 1
 frame = 0
@@ -10,11 +13,7 @@ y=0
 while True:
 	ret, frame1 = cap.read()
 	ret, frame2 = cap.read()
-	#grayImage1 = cv2.cvtColor(frame1, cv2.COLOR_BGR2GRAY)
-	
-	
-	#grayImage2 = cv2.cvtColor(frame2, cv2.COLOR_BGR2GRAY)
-	#diffImage = cv2.absdiff(grayImage1, grayImage2)
+
 	diffImage = cv2.absdiff(frame1, frame2)
 	retral, threshold = cv2.threshold(diffImage, 20, 21, cv2.THRESH_BINARY)
 	grayImage = cv2.cvtColor(threshold, cv2.COLOR_BGR2GRAY)
@@ -36,7 +35,7 @@ while True:
 		frame = frame + 1
 		x = point[0]
 		y = point[1]
-		print 'trial: '+ str(trial)+ ' frame: ' + str(frame) + ' x: ' + str(point[0]) +' y: ' + str(point[1])
+		print 'trial: '+ str(trial)+ ' frame: ' + str(frame) + ' x: ' + str(point[0]) +' y: ' + str(point[1]) + ' ' + filename
 			
 			
 		
@@ -48,7 +47,7 @@ while True:
 		
 		timeCount = timeCount+1
 		frame = frame + 1
-		print 'trial: '+ str(trial)+ ' frame: ' + str(frame) + ' x: ' + str(x) +' y: ' + str(y)
+		print 'trial: '+ str(trial)+ ' frame: ' + str(frame) + ' x: ' + str(x) +' y: ' + str(y) + ' ' + filename
 
 	if cv2.waitKey(1) & 0xFF == ord('q'):
 		break

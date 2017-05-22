@@ -9,3 +9,6 @@ Versions:
 
 	Opencv3
 	Python2
+Path for opencv:
+	export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+
