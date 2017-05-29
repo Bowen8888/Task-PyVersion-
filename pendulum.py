@@ -25,7 +25,7 @@ while True:
 	retral2, final = cv2.threshold(blur, 12, 255, cv2.THRESH_BINARY)
 	
 	cv2.imshow('Threshold of Blur',final)
-	th, contours, hierarchy = cv2.findContours(final, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+	(contours, hierarchy) = cv2.findContours(final, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 	
 	if len(contours) > 0 and len(contours) < 6 :
 		
